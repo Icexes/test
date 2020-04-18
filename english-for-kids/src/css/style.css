@@ -1,3 +1,11 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -142,12 +150,14 @@ a {
   bottom: 15px;
   right: 9px;
 }
-
+.main-content__title {
+    margin-top: 10px;
+}
 .cards {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .card {
@@ -158,6 +168,7 @@ a {
   height: 280px;
   margin-right: 25px;
   margin-bottom: 15px;
+  border-radius: 20px;
   /* background: -webkit-gradient(
     linear,
     left top,
@@ -174,7 +185,7 @@ a {
 .card:hover {
     box-shadow: 15px 15px 20px 0 rgba(88, 161, 119, 0.4);
 }
-.card__face:hover {
+.card-word:hover {
     box-shadow: 15px 15px 20px 0 rgba(88, 161, 119, 0.4);
 }
 
@@ -189,7 +200,8 @@ a {
 
 
 .card-container {
-
+    margin-right: 35px;
+    margin-bottom: 35px;
     perspective: 600px;
 }
 
@@ -198,6 +210,16 @@ a {
     transform-style: preserve-3d;
     cursor: pointer;
     position: relative;
+    margin : 0px;
+    border-radius: 5px;
+    border: 1px solid rgb(112, 104, 104);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 300px;
+    height: 280px;
+    margin-right: 25px;
+    margin-bottom: 15px;
 }
 
 .card__face {
@@ -221,6 +243,10 @@ a {
     object-fit: cover;
     margin: 0px auto;
 }
+.card-word__description {
+    margin-top:10px;
+
+}
 
 .card__rotate {
     width: 30px;
@@ -229,12 +255,20 @@ a {
     bottom: 15px;
     right: 20px;
     -webkit-filter: grayscale(1);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
  
 }
 
 .card__rotate:hover {
     -webkit-filter: none;
 }
+
+.card--rotate .card__rotate:hover {
+    -webkit-filter: grayscale(1);
+}
+
+
 
 
 .card--rotate {
