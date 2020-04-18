@@ -3,6 +3,7 @@ import '../css/style.scss';
 import createHeader from './Header/header';
 // import createCards from './MainContent/Cards/Cards';
 import createMainContent from './MainContent/MainContent'
+import playAudio from './MainContent/Cards/Card/playAudio'
 
 createHeader();
 
@@ -19,6 +20,10 @@ mainContent.addEventListener('click', event => {
     if (event.target.classList.contains('card__rotate')) {
     event.target.closest('.card-word').classList.toggle('card--rotate');
     }
+        else if ((!event.target.closest('.card--rotate'))) {
+            playAudio((event.target.closest('.card-word').getAttribute('data-audio-src')));
+        }
+
 }
 
 })

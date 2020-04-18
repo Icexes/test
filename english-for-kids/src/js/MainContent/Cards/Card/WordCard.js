@@ -1,25 +1,12 @@
 export default function createWordCard(data,category) {
     
-    
-    // card.href = '#';
-    // card.classList.add('card', 'card-word');
-    // const cardDescription = document.createElement('p');
-    // cardDescription.classList.add('card__description');
-    // cardDescription.textContent = data.word;
-    // const cardImage = document.createElement('img');
-    // cardImage.classList.add('card__image');
-    // cardImage.src = data.image;
-    // card.append(cardImage,cardDescription);
-   
-   
-    // console.log(category);
-    // return card
 
 
     const cardContainer = document.createElement('div');
     cardContainer.classList.add('card-container');
     const card = document.createElement('div');
     card.classList.add('card', 'card-word');
+    card.dataset.audioSrc = data.audioSrc;
     const cardFace = document.createElement('div');
     cardFace.classList.add('card__face', 'card__face--front');
     const cardFaceImage = document.createElement('img');
