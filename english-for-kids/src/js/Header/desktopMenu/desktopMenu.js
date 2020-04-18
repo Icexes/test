@@ -11,6 +11,7 @@ export default function createDesktopMenu() {
         item.classList.add('desktop-menu__item');
         const link = document.createElement('a');
         link.href = '#';
+        // link.alt = textContent;
         link.classList.add('desktop-menu__link');
         link.text = textContent;
         item.append(link)

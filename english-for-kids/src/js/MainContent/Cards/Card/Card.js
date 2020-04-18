@@ -1,10 +1,10 @@
 export default function createCard(data,category) {
     const card = document.createElement('a');
     card.href = '#';
-    card.dataset.category = data.category;
+    card.dataset.category = data.name;
     card.classList.add('card', 'card-category');
     const cardDescription = document.createElement('p');
-    if (category === 'mainPaige') {
+    if (category === 'Main Page') {
     cardDescription.classList.add('card__description');
     cardDescription.textContent = data.name;
     const cardImage = document.createElement('img');

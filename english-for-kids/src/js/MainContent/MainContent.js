@@ -1,8 +1,8 @@
 import createCards from './Cards/Cards'
 
 
-export default function createMainContent(category = 'mainPaige') {
-     
+export default function createMainContent(category = 'Main Page') {
+
     const mainContent = !document.querySelector('main .wrapper') ? document.createElement('main') : document.querySelector('main');
     mainContent.classList.add('main-content');
     const wrapper = !document.querySelector('main .wrapper') ? document.createElement('div') : document.querySelector('main .wrapper');

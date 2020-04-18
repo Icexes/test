@@ -17,11 +17,5 @@ export default function createHeader() {
     header.append(wrapper);
     document.body.append(header);
 
-    header.addEventListener('click', event => {
-        if (event.target.closest('.menu-button')) {
-            header.querySelector('.menu-button').classList.toggle('menu-button--rotate');
-            header.querySelector('.desktop-menu').classList.toggle('desktop-menu--active');
-        }
-
-    })
+    return header;
 }

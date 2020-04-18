@@ -1,12 +1,10 @@
 const cardsData = {
-  'mainPaige': [{
+  'Main Page': [{
       name: 'Action (set A)',
-      category: 'actionA',
       imageSrc: './img/dance.jpg'
     },
     {
       name: 'Action (set B)',
-      category: 'actionB',
       imageSrc: 'img/swim.jpg'
     },
     {
@@ -16,12 +14,10 @@ const cardsData = {
     },
     {
       name: 'Adjective',
-      category: 'adjective',
       imageSrc: 'img/cry.jpg'
     },
     {
       name: 'Animal (set A)',
-      category: 'adjective',
       imageSrc: 'img/chicken.jpg'
     },
     {
@@ -40,7 +36,7 @@ const cardsData = {
       imageSrc: 'img/happy.jpg'
     }
   ],
-  'actionA': [{
+  'Action (set A)': [{
       word: 'cry',
       translation: 'плакать',
       image: 'img/cry.jpg',
@@ -89,7 +85,7 @@ const cardsData = {
       audioSrc: 'audio/jump.mp3'
     }
   ],
-  'actionB': [{
+  'Action (set B)': [{
       word: 'open',
       translation: 'открывать',
       image: 'img/open.jpg',
@@ -138,7 +134,7 @@ const cardsData = {
       audioSrc: 'audio/swim.mp3'
     }
   ],
-  'actionC': [{
+  'Action (set C)': [{
       word: 'cat',
       translation: 'кот',
       image: 'img/cat.jpg',
@@ -187,7 +183,7 @@ const cardsData = {
       audioSrc: 'audio/sheep.mp3'
     }
   ],
-  'animalA': [{
+  'Animal (set A)': [{
       word: 'bird',
       translation: 'птица',
       image: 'img/bird.jpg',
@@ -236,7 +232,7 @@ const cardsData = {
       audioSrc: 'audio/dolphin.mp3'
     }
   ],
-  'animalB': [{
+  'Animal (set B)': [{
       word: 'skirt',
       translation: 'юбка',
       image: 'img/skirt.jpg',
@@ -285,7 +281,7 @@ const cardsData = {
       audioSrc: 'audio/shoe.mp3'
     }
   ],
-  'emotions': [{
+  'Emotions': [{
       word: 'sad',
       translation: 'грустный',
       image: 'img/sad.jpg',

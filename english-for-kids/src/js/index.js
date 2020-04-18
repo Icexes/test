@@ -5,14 +5,29 @@ import createHeader from './Header/header';
 import createMainContent from './MainContent/MainContent'
 import playAudio from './MainContent/Cards/Card/playAudio'
 
-createHeader();
-
-
+const header = createHeader();
 const mainContent = createMainContent();
+let currentPage = 'MainPage';
+
+
+header.addEventListener('click', event => {
+    if (event.target.closest('.menu-button')) {
+        header.querySelector('.menu-button').classList.toggle('menu-button--rotate');
+        header.querySelector('.desktop-menu').classList.toggle('desktop-menu--active');
+    }
+    else if (event.target.closest('.desktop-menu__link')) {
+        header.querySelector('.menu-button').classList.toggle('menu-button--rotate');
+        header.querySelector('.desktop-menu').classList.toggle('desktop-menu--active');
+        if (currentPage === event.target.textContent) return;
+        currentPage = event.target.textContent;
+        createMainContent(event.target.textContent);
+    }
+
+})
 
 mainContent.addEventListener('click', event => {
    if (event.target.closest('.card-category')) {
-       
+       currentPage = event.target.closest('.card').getAttribute('data-category');
        createMainContent(event.target.closest('.card').getAttribute('data-category'));
    }
    if (event.target.closest('.card-word')) {

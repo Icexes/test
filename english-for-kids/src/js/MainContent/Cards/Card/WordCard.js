@@ -5,7 +5,7 @@ export default function createWordCard(data,category) {
     const cardContainer = document.createElement('div');
     cardContainer.classList.add('card-container');
     const card = document.createElement('div');
-    card.classList.add('card', 'card-word');
+    card.classList.add('card-word');
     card.dataset.audioSrc = data.audioSrc;
     const cardFace = document.createElement('div');
     cardFace.classList.add('card__face', 'card__face--front');
