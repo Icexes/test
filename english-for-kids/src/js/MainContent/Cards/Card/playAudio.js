@@ -1,4 +1,4 @@
-export default async function  playAudio(audioSrc) {
+export default async function playAudio(audioSrc) {
     const audio = new Audio();
     audio.src = audioSrc;
     audio.preload = 'auto';
