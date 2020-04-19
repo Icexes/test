@@ -1,4 +1,4 @@
-export default function createWordCard(data,category) {
+export default function createWordCard(data) {
     
 
 
@@ -33,26 +33,14 @@ export default function createWordCard(data,category) {
     cardBackDescription.textContent = data.translation;
     cardBack.append(cardBackImage, cardBackDescription);
     
-    const cardRotate = document.createElement('img');
+    const cardRotate = document.createElement('div');
     cardRotate.classList.add('card__rotate');
-    cardRotate.src='img/rotate.png';
-    
-    // ///////////////////
     card.append(cardFace,cardBack,cardRotate);
     cardContainer.append(card);
-    console.log(data,category);
 
 
 
-    // const cardDescription = document.createElement('p');
-    // cardDescription.classList.add('card__description');
-    // cardDescription.textContent = data.word;
-    // const cardImage = document.createElement('img');
-    // cardImage.classList.add('card__image');
-    // cardImage.src = data.image;
-    // card.append(cardImage,cardDescription);
-   
-   
-    // console.log(category);
+
+
     return cardContainer;
 }

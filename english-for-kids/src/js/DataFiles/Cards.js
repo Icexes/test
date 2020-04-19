@@ -8,31 +8,27 @@ const cardsData = {
       imageSrc: 'img/swim.jpg'
     },
     {
-      name: 'Action (set C)',
-      category: 'actionC',
-      imageSrc: 'img/drop.jpg'
+      name: 'Weather',
+      imageSrc: 'img/thunder.jpg'
     },
     {
-      name: 'Adjective',
-      imageSrc: 'img/cry.jpg'
+      name: 'Professions',
+      imageSrc: 'img/painter.jpg'
     },
     {
       name: 'Animal (set A)',
-      imageSrc: 'img/chicken.jpg'
+      imageSrc: 'img/bird.jpg'
     },
     {
       name: 'Animal (set B)',
-      category: 'adjective',
-      imageSrc: 'img/mouse.jpg'
+      imageSrc: 'img/pig.jpg'
     },
     {
       name: 'Clothes',
-      category: 'adjective',
       imageSrc: 'img/shirt.jpg'
     },
     {
       name: 'Emotions',
-      category: 'adjective',
       imageSrc: 'img/happy.jpg'
     }
   ],
@@ -134,7 +130,7 @@ const cardsData = {
       audioSrc: 'audio/swim.mp3'
     }
   ],
-  'Action (set C)': [{
+  'Animal (set B)': [{
       word: 'cat',
       translation: 'кот',
       image: 'img/cat.jpg',
@@ -232,7 +228,7 @@ const cardsData = {
       audioSrc: 'audio/dolphin.mp3'
     }
   ],
-  'Animal (set B)': [{
+  'Clothes': [{
       word: 'skirt',
       translation: 'юбка',
       image: 'img/skirt.jpg',
@@ -329,7 +325,105 @@ const cardsData = {
       image: 'img/laugh.jpg',
       audioSrc: 'audio/laugh.mp3'
     }
-  ]
+  ],
+  'Weather': [{
+    word: 'thunder',
+    translation: 'гром',
+    image: 'img/thunder.jpg',
+    audioSrc: 'audio/thunder.mp3'
+  },
+  {
+    word: 'cloud',
+    translation: 'облако',
+    image: 'img/cloud.jpg',
+    audioSrc: 'audio/cloud.mp3'
+  },
+  {
+    word: 'rain',
+    translation: 'дождь',
+    image: 'img/rain.jpg',
+    audioSrc: 'audio/rain.mp3'
+  },
+  {
+    word: 'rainbow',
+    translation: 'радуга',
+    image: 'img/rainbow.jpg',
+    audioSrc: 'audio/rainbow.mp3'
+  },
+  {
+    word: 'snow',
+    translation: 'снег',
+    image: 'img/snow.jpg',
+    audioSrc: 'audio/snow.mp3'
+  },
+  {
+    word: 'storm',
+    translation: 'шторм',
+    image: 'img/storm.jpg',
+    audioSrc: 'audio/storm.mp3'
+  },
+  {
+    word: 'sun',
+    translation: 'солнце',
+    image: 'img/sun.jpg',
+    audioSrc: 'audio/sun.mp3'
+  },
+  {
+    word: 'wind',
+    translation: 'ветер',
+    image: 'img/wind.jpg',
+    audioSrc: 'audio/wind.mp3'
+  }
+],
+'Professions': [{
+  word: 'cook',
+  translation: 'повар',
+  image: 'img/cook.jpg',
+  audioSrc: 'audio/cook.mp3'
+},
+{
+  word: 'pilot',
+  translation: 'летчик',
+  image: 'img/pilot.jpg',
+  audioSrc: 'audio/pilot.mp3'
+},
+{
+  word: 'singer',
+  translation: 'певец',
+  image: 'img/singer.jpg',
+  audioSrc: 'audio/singer.mp3'
+},
+{
+  word: 'teacher',
+  translation: 'учитель',
+  image: 'img/teacher.jpg',
+  audioSrc: 'audio/teacher.mp3'
+},
+{
+  word: 'waiter',
+  translation: 'официант',
+  image: 'img/waiter.jpg',
+  audioSrc: 'audio/waiter.mp3'
+},
+{
+  word: 'policeman',
+  translation: 'полицейский',
+  image: 'img/policeman.jpg',
+  audioSrc: 'audio/policeman.mp3'
+},
+{
+  word: 'painter',
+  translation: 'художник',
+  image: 'img/painter.jpg',
+  audioSrc: 'audio/painter.mp3'
+},
+{
+  word: 'mechanic',
+  translation: 'механик',
+  image: 'img/mechanic.jpg',
+  audioSrc: 'audio/mechanic.mp3'
+}
+]
 
 }
 
