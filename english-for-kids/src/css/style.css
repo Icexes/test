@@ -100,7 +100,6 @@ a {
   width: 30px;
   height: 30px;
   background-size: cover;
-  /* background-position: -20%; */
   background-repeat: no-repeat;
   margin-right: 10px;
   margin-top: 3px;
@@ -463,3 +462,19 @@ a {
         margin: 0 0 15px 0;
     }
     }
+
+
+
+    
+@media screen and (max-height: 700px) {
+    .desktop-menu__list {
+        margin: 110px 0 0 60px;
+    }
+    .desktop-menu__item {
+        margin-bottom: 15px;
+    }
+    .desktop-menu__item:last-child {
+        margin-bottom: 0;
+    }
+    }
+

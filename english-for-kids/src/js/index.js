@@ -1,12 +1,9 @@
 import '../css/style.css';
 import '../css/style.scss';
 import createHeader from './Header/header';
-// import createCards from './MainContent/Cards/Cards';
 import createMainContent from './MainContent/MainContent'
 import playAudio from './MainContent/Cards/Card/playAudio'
 import playMode from './PlayMode/PlayMode';
-// import startGame from './PlayMode/StartGame'
-
 
 const header = createHeader();
 let isPlayMode = false;
@@ -79,7 +76,7 @@ mainContent.addEventListener('click', event => {
                     playAudio('audio/correct.mp3');
                     createIcon(true);
                     cardsAudio.pop();
-                    if (cardsAudio.length>0) setTimeout(() => playAudio(cardsAudio[cardsAudio.length - 1]), 1000);     
+                    if (cardsAudio.length > 0) setTimeout(() => playAudio(cardsAudio[cardsAudio.length - 1]), 1000);
                     if (!cardsAudio.length) {
                         const modalWindow = document.createElement('div');
                         modalWindow.classList.add('modal-window', );
@@ -99,7 +96,7 @@ mainContent.addEventListener('click', event => {
                         }
                         modalWindow.append(modalDescription, modalImage);
                         document.body.append(modalWindow);
-                       setTimeout(() => modalWindow.remove(), 3500);
+                        setTimeout(() => modalWindow.remove(), 3500);
                         isGameStart = false;
                         currentPage = 'Main Page';
                         createMainContent(currentPage, true);
