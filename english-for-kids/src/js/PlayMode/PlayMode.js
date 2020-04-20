@@ -8,7 +8,7 @@ export default function playMode(currentPage, isPlayMode) {
         desktopMenu.classList.remove('desktop-menu--play-mode');
     }
 
-    if (currentPage !== 'Main Page') {
+    if (currentPage !== 'Main Page' && (currentPage !== 'Statistics' || (document.querySelector('.main-content__title') ? document.querySelector('.main-content__title').textContent ==='Repeat' : 0))) {
         if (isPlayMode) {
             cards.forEach(card => {
                 const cardWordCover = document.createElement('div');
@@ -18,7 +18,9 @@ export default function playMode(currentPage, isPlayMode) {
                 card.querySelector('p').classList.add('display-none');
                 card.querySelector('.card__rotate').classList.add('display-none');
             })
+            if (wrapper) {
             wrapper.querySelector('.play-button').classList.add('display-block');
+        }
         } else {
             if (!document.querySelector('.card-word--cover')) return;
             cards.forEach(card => {

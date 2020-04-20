@@ -4,6 +4,7 @@ import createHeader from './Header/header';
 import createMainContent from './MainContent/MainContent'
 import playAudio from './MainContent/Cards/Card/playAudio'
 import playMode from './PlayMode/PlayMode';
+import cardsData from './DataFiles/Cards'
 
 const header = createHeader();
 let isPlayMode = false;
@@ -13,14 +14,20 @@ let currentPage = 'Main Page';
 let cardsAudio = [];
 let errorsCounter = 0;
 const blurBody = document.createElement('div');
-
-const createIcon = (result) => {
+const createResultIcon = (result) => {
     const correctAnswer = document.createElement('img');
     correctAnswer.src = result ? 'img/correct-answer.png' : 'img/wrong-answer.png';
     correctAnswer.classList.add('answer', );
     const statPanel = document.querySelector('.stat-panel');
     statPanel.prepend(correctAnswer);
 }
+
+if (!localStorage.getItem('cardsStat')) {
+    localStorage.setItem('cardsStat', JSON.stringify(cardsData));
+}
+
+const cardStat = JSON.parse(localStorage.getItem('cardsStat'));
+
 
 header.addEventListener('click', event => {
     if (event.target.closest('.menu-button')) {
@@ -35,7 +42,7 @@ header.addEventListener('click', event => {
         }
     } else if (event.target.closest('.desktop-menu__link')) {
         isGameStart = false;
-        createMainContent(event.target.textContent, isPlayMode);
+        createMainContent(event.target.textContent, isPlayMode, cardsData);
         header.querySelector('.menu-button').classList.toggle('menu-button--rotate');
         header.querySelector('.desktop-menu').classList.toggle('desktop-menu--active');
         currentPage = event.target.textContent;
@@ -46,13 +53,29 @@ header.addEventListener('click', event => {
 
         isPlayMode = event.target.closest('input').checked;
         const statPanel = document.querySelector('.stat-panel');
-        statPanel.innerHTML = '';
+        if (statPanel) statPanel.innerHTML = '';
         if (!isPlayMode && isGameStart) isGameStart = false;
         playMode(currentPage, isPlayMode);
 
     }
 
 })
+
+
+const setCardStat = (currentCardImgSrc, isCorrectAnswer = false, isWrongAnswer = false) => {
+    const newState = Object.assign(cardStat);
+    const categoryData = newState[currentPage];
+    categoryData.map(wordObject => {
+        const wordObject1 = wordObject;
+        if (wordObject1.audioSrc === currentCardImgSrc) {
+            if (isCorrectAnswer) wordObject1.ok += 1;
+            else if (isWrongAnswer) wordObject1.bad += 1;
+            else wordObject1.click += 1;
+        }
+        return wordObject1;
+    })
+    localStorage.setItem('cardsStat', JSON.stringify(newState));
+}
 
 mainContent.addEventListener('click', event => {
 
@@ -63,6 +86,11 @@ mainContent.addEventListener('click', event => {
 
     }
     if (event.target.closest('.card-word')) {
+        if (!isPlayMode && !event.target.closest('.card-word').classList.contains('card--rotate') && !event.target.classList.contains('card__rotate')) {
+            if(document.querySelector('.main-content__title').textContent!=='Repeat') {
+            setCardStat(event.target.closest('.card-word').getAttribute('data-audio-src'));
+        }
+        }
 
         if (event.target.classList.contains('card__rotate')) {
             event.target.closest('.card-word').classList.toggle('card--rotate');
@@ -72,9 +100,12 @@ mainContent.addEventListener('click', event => {
             if (isGameStart) {
                 if (event.target.classList.contains('card-word--correct-answer')) return;
                 if (event.target.closest('.card-word').getAttribute('data-audio-src') === cardsAudio[cardsAudio.length - 1]) {
+                    if(document.querySelector('.main-content__title').textContent!=='Repeat') {
+                    setCardStat(cardsAudio[cardsAudio.length - 1], true);
+                    }
                     event.target.classList.add('card-word--correct-answer');
                     playAudio('audio/correct.mp3');
-                    createIcon(true);
+                    createResultIcon(true);
                     cardsAudio.pop();
                     if (cardsAudio.length > 0) setTimeout(() => playAudio(cardsAudio[cardsAudio.length - 1]), 1000);
                     if (!cardsAudio.length) {
@@ -103,7 +134,10 @@ mainContent.addEventListener('click', event => {
                     }
 
                 } else {
-                    createIcon(false);
+                    if(document.querySelector('.main-content__title').textContent!=='Repeat') {
+                    setCardStat(cardsAudio[cardsAudio.length - 1], false, true);
+                    }
+                    createResultIcon(false);
                     playAudio('audio/error.mp3')
                     errorsCounter += 1;
                 }
